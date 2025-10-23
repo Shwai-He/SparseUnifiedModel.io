@@ -222,11 +222,26 @@
 
     <div class="has-text-centered">
       <figure><img src="static/images/zeros_ones_ratio_hatch.svg" width="70%"><figcaption><b>(a)</b> Activation sparsity patterns across layers.</figcaption></figure>
-      <p class="is-size-6 mt-3"><b>Figure 4.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers, indicating emergent structured sparsity that can be exploited for efficient routing and inference.</p>
-      <figure class="mt-5"><img src="static/images/comprison_gen.png" width="70%"><figcaption><b>(b)</b> Overall comparison between training-free slimness and training-aware sparsity.</figcaption></figure>
-      <p class="is-size-6 mt-3">Training-free analysis identifies naturally compressible regions, while MoE-based sparse adaptation further refines activation patterns to restore generation quality with minimal computation.</p>
+      <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
+      <p>
+        <b>Figure 4.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers, indicating emergent structured sparsity that can be exploited for efficient routing and inference.
+      </p>
+      </div>
     </div>
-  </div>
+
+      <!-- <p class="is-size-6 mt-3"><b>Figure 4.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers, indicating emergent structured sparsity that can be exploited for efficient routing and inference.</p> -->
+      <figure class="mt-5"><img src="static/images/comprison_gen.png" width="70%"><figcaption><b>(b)</b> Overall comparison between training-free slimness and training-aware sparsity.</figcaption></figure>
+      
+    <div class="has-text-centered">
+      <figure><img src="static/images/zeros_ones_ratio_hatch.svg" width="70%"><figcaption><b>(a)</b> Activation sparsity patterns across layers.</figcaption></figure>
+      <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
+      <p>
+        Training-free analysis identifies naturally compressible regions, while MoE-based sparse adaptation further refines activation patterns to restore generation quality with minimal computation.
+      </p>
+      </div>    
+      <!-- <p class="is-size-6 mt-3">Training-free analysis identifies naturally compressible regions, while MoE-based sparse adaptation further refines activation patterns to restore generation quality with minimal computation.</p> -->
+    <!-- </div> -->
+    </div>
 </section>
 
 <!-- ====================== BibTeX ====================== -->
