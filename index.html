@@ -9,50 +9,70 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <script defer src="./static/js/fontawesome.all.min.js"></script>
+  
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.7;
+  }
 
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      color: #333;
-      line-height: 1.7;
-    }
-    h1, h2, h3 {
-      font-family: 'Source Serif Pro', serif;
-      font-weight: 600;
-      color: #111;
-    }
-    h2.title.is-3, h3.title.is-3 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    h2.title.is-3 img, h3.title.is-3 img {
-      width: 36px;
-      vertical-align: middle;
-    }
-    .content.has-text-justified p {
-      text-align: justify;
-      font-family: 'Source Serif Pro', serif;
-      font-size: 1.05rem;
-      color: #333;
-      line-height: 1.75;
-    }
-    figure {
-      text-align: center;
-    }
-    figcaption {
-      font-size: 0.9rem;
-      color: #555;
-    }
-    section.section {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-    .navbar {
-      border-bottom: 1px solid #e6e6e6;
-    }
-  </style>
+  h1, h2, h3 {
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 600;
+    color: #111;
+  }
+
+  /* ✅ 调整标题字号 */
+  h1.title.is-1 {
+    font-size: 2.3rem !important; /* 原约3rem，略缩小 */
+  }
+
+  h2.title.is-3,
+  h3.title.is-3 {
+    font-size: 1.55rem !important; /* 原约1.75rem */
+  }
+
+  h2.title.is-3,
+  h3.title.is-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  h2.title.is-3 img,
+  h3.title.is-3 img {
+    width: 34px; /* 图标稍微小一点 */
+    vertical-align: middle;
+  }
+
+  .content.has-text-justified p {
+    text-align: justify;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 1.05rem;
+    color: #333;
+    line-height: 1.75;
+  }
+
+  figure {
+    text-align: center;
+  }
+
+  figcaption {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  section.section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .navbar {
+    border-bottom: 1px solid #e6e6e6;
+  }
+</style>
 </head>
 
 <body>
@@ -136,8 +156,8 @@
         <b>SparseUnifiedModel</b> integrates pre-trained multimodal backbones (<a href="https://github.com/ByteDance-Seed/Bagel">BAGEL</a>, <a href="https://github.com/inclusionAI/Ming/tree/main">Ming-Omni</a>, <a href="https://github.com/QwenLM/Qwen-Image">Qwen-Image</a>) into a unified framework for both <i>understanding</i> and <i>generation</i>. It leverages sparse activation, modular adaptation, and component-level analysis to uncover redundancy and improve computational efficiency across heterogeneous modalities. We consider a two-stage efficiency optimization procedure:
       </p>
       <ul>
-        <li><b>Stage 1: Training-Free Component Analysis.</b> Using depth and width pruning as probing tools, we systematically identify compressible submodules, revealing distinct sensitivities across understanding and generation components.</li>
-        <li><b>Stage 2: Sparse Adaptation via MoE Integration.</b> Inspired by dynamic activation patterns across tasks, we introduce a <b>Mixture-of-Experts (MoE)</b> adaptation that enables selective activation in generation modules, achieving high-quality generation with reduced computational cost.</li>
+        <li><b>Training-Free Component Analysis.</b> Using depth and width pruning as probing tools, we systematically identify compressible submodules, revealing distinct sensitivities across understanding and generation components.</li>
+        <li><b>Sparse Adaptation via MoE Integration.</b> Inspired by dynamic activation patterns across tasks, we introduce a <b>Mixture-of-Experts (MoE)</b> adaptation that enables selective activation in generation modules, achieving high-quality generation with reduced computational cost.</li>
       </ul>
     </div>
 
@@ -152,7 +172,7 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">
       <img src="https://cdn-icons-png.flaticon.com/512/1828/1828673.png">
-      <span>Key Results and Insights</span>
+      <span>Understanding Component Demonstrate Compressibility </span>
     </h2>
 
     <div class="columns is-centered is-vcentered">
