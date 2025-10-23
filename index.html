@@ -299,37 +299,39 @@
 </div>
 
     <!-- ---------------------- Neuron Overlap and Calibration ---------------------- -->
-    <div class="content has-text-centered">
-      <h3 class="title is-4">Neuron Overlap and Calibration</h3>
+<!-- ---------------------- Neuron Overlap and Calibration ---------------------- -->
+<div class="content has-text-centered">
+  <h3 class="title is-4">Neuron Overlap and Calibration</h3>
 
-      <div class="columns is-centered is-vcentered">
+  <!-- Top Figure -->
+  <figure>
+    <img src="static/images/overlap.svg" width="70%">
+    <figcaption class="is-size-7 mt-2">
+      <b>(a)</b> Neuron activation overlap between understanding and generation tasks.
+    </figcaption>
+  </figure>
 
-        <!-- Left: Neuron Overlap -->
-        <div class="column is-half">
-          <figure>
-            <img src="static/images/overlap.svg" width="95%">
-            <figcaption class="is-size-7 mt-2"><b>(a)</b> Neuron activation overlap between understanding and generation tasks.</figcaption>
-          </figure>
-        </div>
+  <p class="is-size-6 mt-3">
+    <b>Figure 3.</b> <b>Neuron activation overlap and calibration analysis.</b> 
+    The overlap ratio quantifies shared neurons activated by both understanding and generation inputs, 
+    highlighting <b>task-specific specialization</b> within the unified multimodal model. 
+  </p>
 
-        <!-- Right: Calibration Ablation -->
-        <div class="column is-half">
-          <figure>
-            <img src="static/images/ablate_data.png" width="95%">
-            <figcaption class="is-size-7 mt-2"><b>(b)</b> Effect of calibration data on neuron importance estimation and overlap ratio.</figcaption>
-          </figure>
-        </div>
+  <!-- Bottom Figure -->
+  <figure class="mt-5">
+    <img src="static/images/ablate_data.png" width="70%">
+    <figcaption class="is-size-7 mt-2">
+      <b>(b)</b> Effect of calibration data on neuron importance estimation and overlap ratio.
+    </figcaption>
+  </figure>
 
-      </div>
+    <p class="is-size-6 mt-3">
+    <b> Moreover, using task-aligned calibration data significantly improves the reliability of 
+    neuron importance estimation, confirming that <b>calibration data matters</b>.
+  </p>
 
-      <p class="is-size-6 mt-3">
-        <b>Figure 3.</b> <b>Neuron activation overlap and calibration analysis.</b>
-        The overlap ratio quantifies shared neurons activated by both understanding and generation inputs,
-        revealing <b>task-specific specialization</b> within the unified multimodal model. 
-        Using task-aligned calibration data substantially improves neuron partitioning accuracy, 
-        confirming that <b>calibration data matters</b> for reliable training-free analysis.
-      </p>
-    </div>
+
+</div>
 
     <!-- ---------------------- Runtime / Loss ---------------------- -->
     <!-- <div class="content has-text-centered">
@@ -354,6 +356,7 @@
     </div>
 
       <img src="static/images/comprison_gen.png" width="65%">
+
     overall comprison between training-free slimness and training-aware sparsity 
 
 
