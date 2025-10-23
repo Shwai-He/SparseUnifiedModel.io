@@ -297,10 +297,32 @@
 </section>
 
 <!-- ====================== Sparsity and Comparison ====================== -->
+
+
+
+
 <section class="section">
   <div class="container is-max-desktop">
     <h3 class="title is-3 has-text-centered">Emergent Sparsity and Model Comparison</h3>
     <div class="content has-text-centered">
+
+      <figure>
+        <img src="static/images/dilemma_compress_gen.png" width="70%">
+        <figcaption class="is-size-7 mt-2">
+          <b>Figure 3.</b> The compression dilemma in generation modules.
+        </figcaption>
+      </figure>
+
+      <p class="is-size-6 mt-3">
+        While <b>understanding components</b> exhibit high structural redundancy and can be pruned with minor impact,
+        <b>generation modules</b> present a fundamental compression dilemma. 
+        Their parameters are tightly coupled with output fidelity, where even moderate pruning ratios 
+        lead to severe degradation in text or image quality.  
+        This imbalance highlights a key challenge in unified multimodal efficiency — 
+        <b>how to compress aggressively without harming generative capability</b>.  
+        In our study, we find that sparse adaptation via MoE routing offers a viable path forward, 
+        allowing selective activation instead of uniform compression across the entire generation stack.
+      </p>
 
       <figure>
         <img src="static/images/zeros_ones_ratio_hatch.svg" width="70%">
