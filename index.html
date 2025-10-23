@@ -198,7 +198,7 @@
   <!-- Results. -->
   <div class="columns is-centered has-text-centered">
     <div class="column is-six-fifths">
-      <h2 class="title is-3"><img id="painting_icon" width="3%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> # SparseUnifiedModel: Toward Efficient Unified Multimodal Architectures
+      <h2 class="title is-3"><img id="painting_icon" width="3%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> SparseUnifiedModel: Toward Efficient Unified Multimodal Architectures
 </h2>
     </div>
   </div>
@@ -251,35 +251,49 @@
     <h2 class="title is-3 has-text-centered">Architecture and Analysis</h2>
     <hr>
 
-    <!-- Depth Reduction -->
+
+    <!-- ---------------------- Depth Reduction ---------------------- -->
     <div class="content has-text-centered">
       <img src="static/images/depth_reduction.svg" width="65%">
-      <p class="is-size-6 mt-2">
-        <b>Figure 2.</b> Depth pruning analysis reveals the varying sensitivity of understanding and generation components.
+      <p class="is-size-6 mt-3">
+        <b>Figure 2.</b> <b>Depth reduction analysis.</b> 
+        We progressively prune layers across understanding and generation components. 
+        The results show that understanding layers are more compressible, while generation layers 
+        exhibit sharp performance degradation under the same pruning ratio, 
+        reflecting distinct depth sensitivities across modalities.
       </p>
     </div>
 
-    <!-- Neuron Overlap -->
+    <!-- ---------------------- Neuron Overlap ---------------------- -->
     <div class="content has-text-centered">
       <img src="static/images/overlap.svg" width="65%">
-      <p class="is-size-6 mt-2">
-        <b>Figure 3.</b> Overlap ratio between neurons activated by different tasks, highlighting task-specific specialization.
+      <p class="is-size-6 mt-3">
+        <b>Figure 3.</b> <b>Neuron activation overlap across tasks.</b> 
+        Each point represents the proportion of neurons activated by both understanding and generation inputs. 
+        The low overlap ratio reveals <b>task-specific specialization</b> and motivates 
+        component-wise partitioning strategies for efficient adaptation.
       </p>
     </div>
 
-    <!-- Runtime / Loss -->
+    <!-- ---------------------- Runtime / Loss ---------------------- -->
     <div class="content has-text-centered">
       <img src="static/images/rt_loss.svg" width="65%">
-      <p class="is-size-6 mt-2">
-        <b>Figure 4.</b> Efficiency–performance trade-off across pruning ratios and adaptive depth configurations.
+      <p class="is-size-6 mt-3">
+        <b>Figure 4.</b> <b>Efficiency–performance trade-off.</b> 
+        We analyze runtime and reconstruction loss under varying compression ratios. 
+        Sparse adaptation through MoE routing effectively recovers performance 
+        while significantly reducing computational cost, achieving a balanced Pareto frontier.
       </p>
     </div>
 
-    <!-- Sparsity Ratio -->
+    <!-- ---------------------- Sparsity Ratio ---------------------- -->
     <div class="content has-text-centered">
       <img src="static/images/zeros_ones_ratio_hatch.svg" width="65%">
-      <p class="is-size-6 mt-2">
-        <b>Figure 5.</b> Activation sparsity ratio (zeros vs. active neurons) across layers, showing the emergence of structured sparsity.
+      <p class="is-size-6 mt-3">
+        <b>Figure 5.</b> <b>Emergent sparsity patterns.</b> 
+        Visualization of activation distributions across layers. 
+        The increasing ratio of inactive neurons (<i>zeros</i>) in higher layers indicates 
+        an emergent sparse structure that can be exploited for efficient routing and inference.
       </p>
     </div>
 
