@@ -166,10 +166,9 @@
   </div>
 </section>
 
-
+<!-- ====================== Abstract Section ====================== -->
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
@@ -177,192 +176,154 @@
           <p>
             Large-scale multimodal models have achieved remarkable progress in both understanding and generation. Traditionally, these tasks were studied in isolation, resulting in distinct architectures. 
             Recent efforts instead pursue unified multimodal models that integrate heterogeneous components to support both capabilities within a single framework. 
-            However, such unification introduces inference inefficiencies arising from \textit{task-specific activation}, \textit{compute imbalance}, and \textit{input variability}.
+            However, such unification introduces inference inefficiencies arising from <i>task-specific activation</i>, <i>compute imbalance</i>, and <i>input variability</i>.
             Yet, a systematic understanding of how these inefficiencies manifest across different components remains limited.
             In this work, we conduct a systematic analysis of unified multimodal model components using training-free pruning as a probing methodology, considering both depth pruning and width reduction. 
             Our study reveals that the understanding component, while essential for multimodal reasoning, exhibits notable compressibility in generation tasks. 
             In contrast, the generation components are highly sensitive to compression, with performance deteriorating sharply even under moderate pruning ratios. 
-            To address this limitation, we propose a Mixture-of-Experts (MoE) Adaptation, inspired by the dynamic activation patterns observed across different samples. 
+            To address this limitation, we propose a Mixture-of-Experts (MoE) Adaptation, inspired by dynamic activation patterns observed across different samples. 
             This approach partitions the generation module into multiple experts and enables sparse activation to restore generation quality. 
-            We first validate the effectiveness of sparse activation through expert-frozen tuning and further demonstrate that a fully trainable adaptation delivers additional gains. 
+            We validate the effectiveness of sparse activation through expert-frozen tuning and further show that a fully trainable adaptation delivers additional gains. 
             As a result, the adapted BAGEL model achieves performance comparable to the full model while activating only about half of its parameters.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
   </div>
 </section>
 
-<section class="section">
-  <!-- Results. -->
-  <div class="columns is-centered has-text-centered">
-    <div class="column is-six-fifths">
-      <h2 class="title is-3"><img id="painting_icon" width="3%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> SparseUnifiedModel: Toward Efficient Unified Multimodal Architectures
-</h2>
-    </div>
-  </div>
-  <!-- </div> -->
-  <!--/ Results. -->    
-<div class="container is-max-desktop">
-
-  <div class="columns is-centered">
-    <div class="column is-full-width">
-      <div class="content has-text-justified"> 
-        <p>
-
-          <b>SparseUnifiedModel</b> integrates pre-trained multimodal backbones 
-          (<a href="https://github.com/ByteDance-Seed/Bagel">BAGEL</a>, <a href="https://github.com/inclusionAI/Ming/tree/main">Ming-Omni</a>, <a href="https://github.com/QwenLM/Qwen-Image">Qwen-Image</a>)
-          into a unified framework for both <i>understanding</i> and <i>generation</i>. 
-          It leverages sparse activation, modular adaptation, and component-level analysis 
-          to uncover redundancy and improve computational efficiency across heterogeneous modalities.
-          We consider a two-stage efficiency optimization procedure:
-          <ul type="1">
-            <li><b>Stage 1: Training-Free Component Analysis</b>. 
-              <span style="font-size: 95%;">
-                Using depth and width pruning as probing tools, we systematically identify compressible submodules within unified multimodal models, 
-                revealing the sensitivity difference between understanding and generation components.
-              </span>
-            </li>
-            <li><b>Stage 2: Sparse Adaptation via MoE Integration</b>. 
-              <span style="font-size: 95%;">
-                Inspired by dynamic activation patterns across tasks, we introduce a 
-                <b>Mixture-of-Experts (MoE)</b> adaptation to enable selective activation in generation modules, 
-                achieving high-quality generation with reduced computational cost.
-              </span>
-            </li>
-          </ul>
-        </p>
-      </div>
-      <centering>
-        <div style="text-align: center;">
-          <img id="teaser" width="80%" src="static/images/efficient_ug.svg">     
-        </div>
-      </centering>           
-    </div>
-  </div>
-</div>
-
-
-
+<!-- ====================== Overview Section ====================== -->
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">
+          <img id="painting_icon" width="3%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png">
+          SparseUnifiedModel: Toward Efficient Unified Multimodal Architectures
+        </h2>
+      </div>
+    </div>
 
-    <h2 class="title is-3 has-text-centered"> Key Results and Insights </h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>SparseUnifiedModel</b> integrates pre-trained multimodal backbones 
+            (<a href="https://github.com/ByteDance-Seed/Bagel">BAGEL</a>, 
+            <a href="https://github.com/inclusionAI/Ming/tree/main">Ming-Omni</a>, 
+            <a href="https://github.com/QwenLM/Qwen-Image">Qwen-Image</a>)
+            into a unified framework for both <i>understanding</i> and <i>generation</i>. 
+            It leverages sparse activation, modular adaptation, and component-level analysis 
+            to uncover redundancy and improve computational efficiency across heterogeneous modalities.
+            We consider a two-stage efficiency optimization procedure:
+          </p>
+          <ul type="1">
+            <li><b>Stage 1: Training-Free Component Analysis.</b> Using depth and width pruning as probing tools, we systematically identify compressible submodules, revealing distinct sensitivities across understanding and generation components.</li>
+            <li><b>Stage 2: Sparse Adaptation via MoE Integration.</b> Inspired by dynamic activation patterns across tasks, we introduce a <b>Mixture-of-Experts (MoE)</b> adaptation that enables selective activation in generation modules, achieving high-quality generation with reduced computational cost.</li>
+          </ul>
+        </div>
+        <div class="has-text-centered">
+          <img id="teaser" width="80%" src="static/images/efficient_ug.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== Key Results and Insights ====================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Key Results and Insights</h2>
     <hr>
 
-
-    <!-- ---------------------- Compress Und. ---------------------- -->
-
-  <!-- 关键：必须有 .columns 容器包裹 -->
-  <div class="columns is-centered is-vcentered">
-
-    <!-- Left Figure -->
-    <div class="column is-one-third">
-      <figure>
-        <img src="static/images/depth_reduction.svg" style="width:95%; height:auto;">
-        <figcaption class="is-size-7 mt-2">
-          <b>(a)</b> Overall pruning trend across model depth.
-        </figcaption>
-      </figure>
+    <!-- Depth Reduction Analysis (3 Figures in Row) -->
+    <div class="columns is-centered is-vcentered">
+      <div class="column is-one-third">
+        <figure>
+          <img src="static/images/depth_reduction.svg" style="width:95%; height:auto;">
+          <figcaption class="is-size-7 mt-2"><b>(a)</b> Overall pruning trend across model depth.</figcaption>
+        </figure>
+      </div>
+      <div class="column is-one-third">
+        <figure>
+          <img src="static/images/compress_und_und_task.png" style="width:95%; height:auto;">
+          <figcaption class="is-size-7 mt-2"><b>(b)</b> Understanding component under <i>understanding tasks</i>.</figcaption>
+        </figure>
+      </div>
+      <div class="column is-one-third">
+        <figure>
+          <img src="static/images/compress_und_gen_task.png" style="width:95%; height:auto;">
+          <figcaption class="is-size-7 mt-2"><b>(c)</b> Understanding component under <i>generation tasks</i>.</figcaption>
+        </figure>
+      </div>
     </div>
-
-    <!-- Middle Figure -->
-    <div class="column is-one-third">
-      <figure>
-        <img src="static/images/compress_und_und_task.png" style="width:95%; height:auto;">
-        <figcaption class="is-size-7 mt-2">
-          <b>(b)</b> Understanding component under <i>understanding tasks</i>.
-        </figcaption>
-      </figure>
-    </div>
-
-    <!-- Right Figure -->
-    <div class="column is-one-third">
-      <figure>
-        <img src="static/images/compress_und_gen_task.png" style="width:95%; height:auto;">
-        <figcaption class="is-size-7 mt-2">
-          <b>(c)</b> Understanding component under <i>generation tasks</i>.
-        </figcaption>
-      </figure>
-    </div>
-
-  </div>
-
-  <!-- Joint caption -->
-  <p class="is-size-6 mt-3">
-    <b>Figure 2.</b> <b>Depth reduction analysis.</b> 
-    The understanding component shows higher compressibility overall, 
-    yet tolerates even larger pruning ratios when evaluated under <i>generation tasks</i>, 
-    indicating cross-task redundancy in the unified multimodal model.
-  </p>
-</div>
-
-    <!-- ---------------------- Neuron Overlap and Calibration ---------------------- -->
-<!-- ---------------------- Neuron Overlap and Calibration ---------------------- -->
-<div class="content has-text-centered">
-  <h3 class="title is-4">Neuron Overlap and Calibration</h3>
-
-  <!-- Top Figure -->
-  <figure>
-    <img src="static/images/overlap.svg" width="70%">
-    <figcaption class="is-size-7 mt-2">
-      <b>(a)</b> Neuron activation overlap between understanding and generation tasks.
-    </figcaption>
-  </figure>
-
-  <p class="is-size-6 mt-3">
-    <b>Figure 3.</b> <b>Neuron activation overlap and calibration analysis.</b> 
-    The overlap ratio quantifies shared neurons activated by both understanding and generation inputs, 
-    highlighting <b>task-specific specialization</b> within the unified multimodal model. 
-  </p>
-
-  <!-- Bottom Figure -->
-  <figure class="mt-5">
-    <img src="static/images/ablate_data.png" width="70%">
-    <figcaption class="is-size-7 mt-2">
-      <b>(b)</b> Effect of calibration data on neuron importance estimation and overlap ratio.
-    </figcaption>
-  </figure>
 
     <p class="is-size-6 mt-3">
-    <b> Moreover, using task-aligned calibration data significantly improves the reliability of 
-    neuron importance estimation, confirming that <b>calibration data matters</b>.
-  </p>
-
-
-</div>
-
-    <!-- ---------------------- Runtime / Loss ---------------------- -->
-    <!-- <div class="content has-text-centered">
-      <img src="static/images/rt_loss.svg" width="65%">
-      <p class="is-size-6 mt-3">
-        <b>Figure 4.</b> <b>Efficiency–performance trade-off.</b> 
-        We analyze runtime and reconstruction loss under varying compression ratios. 
-        Sparse adaptation through MoE routing effectively recovers performance 
-        while significantly reducing computational cost, achieving a balanced Pareto frontier.
-      </p>
-    </div> -->
-
-    <!-- ---------------------- Sparsity Ratio ---------------------- -->
-    <div class="content has-text-centered">
-      <img src="static/images/zeros_ones_ratio_hatch.svg" width="65%">
-      <p class="is-size-6 mt-3">
-        <b>Figure 5.</b> <b>Emergent sparsity patterns.</b> 
-        Visualization of activation distributions across layers. 
-        The increasing ratio of inactive neurons (<i>zeros</i>) in higher layers indicates 
-        an emergent sparse structure that can be exploited for efficient routing and inference.
-      </p>
-    </div>
-
-      <img src="static/images/comprison_gen.png" width="65%">
-
-    overall comprison between training-free slimness and training-aware sparsity 
-
-
+      <b>Figure 2.</b> <b>Depth reduction analysis.</b> 
+      The understanding component shows higher compressibility overall, 
+      yet tolerates even larger pruning ratios under <i>generation tasks</i>, 
+      suggesting cross-task redundancy in unified multimodal representations.
+    </p>
   </div>
+</section>
 
+<!-- ====================== Neuron Overlap and Calibration ====================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h3 class="title is-3 has-text-centered">Neuron Overlap and Calibration</h3>
+    <div class="content has-text-centered">
 
+      <!-- (a) Overlap -->
+      <figure>
+        <img src="static/images/overlap.svg" width="70%">
+        <figcaption class="is-size-7 mt-2"><b>(a)</b> Neuron activation overlap between understanding and generation tasks.</figcaption>
+      </figure>
+      <p class="is-size-6 mt-3">
+        <b>Figure 3.</b> The overlap ratio quantifies shared neurons activated by both understanding and generation inputs, 
+        highlighting <b>task-specific specialization</b> within the unified multimodal model.
+      </p>
+
+      <!-- (b) Calibration -->
+      <figure class="mt-5">
+        <img src="static/images/ablate_data.png" width="70%">
+        <figcaption class="is-size-7 mt-2"><b>(b)</b> Effect of calibration data on neuron importance estimation and overlap ratio.</figcaption>
+      </figure>
+      <p class="is-size-6 mt-3">
+        Using task-aligned calibration data significantly improves the reliability of neuron importance estimation, confirming that <b>calibration data matters</b>.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====================== Sparsity and Comparison ====================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h3 class="title is-3 has-text-centered">Emergent Sparsity and Model Comparison</h3>
+    <div class="content has-text-centered">
+
+      <figure>
+        <img src="static/images/zeros_ones_ratio_hatch.svg" width="70%">
+        <figcaption class="is-size-7 mt-2"><b>(a)</b> Activation sparsity patterns across layers.</figcaption>
+      </figure>
+
+      <p class="is-size-6 mt-3">
+        <b>Figure 5.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers, 
+        indicating emergent structured sparsity that can be exploited for efficient routing and inference.
+      </p>
+
+      <figure class="mt-5">
+        <img src="static/images/comprison_gen.png" width="70%">
+        <figcaption class="is-size-7 mt-2"><b>(b)</b> Overall comparison between training-free slimness and training-aware sparsity.</figcaption>
+      </figure>
+
+      <p class="is-size-6 mt-3">
+        Training-free analysis identifies naturally compressible regions, 
+        while MoE-based sparse adaptation further refines activation patterns to restore generation quality with minimal computation.
+      </p>
+
+    </div>
+  </div>
 </section>
 
 
