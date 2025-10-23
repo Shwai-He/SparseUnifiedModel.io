@@ -248,45 +248,55 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <h2 class="title is-3 has-text-centered">Architecture and Analysis</h2>
+    <h2 class="title is-3 has-text-centered"> Key Results and Insights </h2>
     <hr>
 
 
     <!-- ---------------------- Compress Und. ---------------------- -->
 
+  <!-- 关键：必须有 .columns 容器包裹 -->
+  <div class="columns is-centered is-vcentered">
+
     <!-- Left Figure -->
     <div class="column is-one-third">
       <figure>
-        <img src="static/images/depth_reduction.svg" width="95%">
-        <figcaption class="is-size-7 mt-2"><b>(a)</b> Overall pruning trend across model depth.</figcaption>
+        <img src="static/images/depth_reduction.svg" style="width:95%; height:auto;">
+        <figcaption class="is-size-7 mt-2">
+          <b>(a)</b> Overall pruning trend across model depth.
+        </figcaption>
       </figure>
     </div>
 
     <!-- Middle Figure -->
     <div class="column is-one-third">
       <figure>
-        <img src="static/images/compress_und_und_task.png" width="95%">
-        <figcaption class="is-size-7 mt-2"><b>(b)</b> Understanding component under <i>understanding tasks</i>.</figcaption>
+        <img src="static/images/compress_und_und_task.png" style="width:95%; height:auto;">
+        <figcaption class="is-size-7 mt-2">
+          <b>(b)</b> Understanding component under <i>understanding tasks</i>.
+        </figcaption>
       </figure>
     </div>
 
     <!-- Right Figure -->
     <div class="column is-one-third">
       <figure>
-        <img src="static/images/compress_und_gen_task.png" width="95%">
-        <figcaption class="is-size-7 mt-2"><b>(c)</b> Understanding component under <i>generation tasks</i>.</figcaption>
+        <img src="static/images/compress_und_gen_task.png" style="width:95%; height:auto;">
+        <figcaption class="is-size-7 mt-2">
+          <b>(c)</b> Understanding component under <i>generation tasks</i>.
+        </figcaption>
       </figure>
     </div>
 
+  </div>
 
+  <!-- Joint caption -->
   <p class="is-size-6 mt-3">
     <b>Figure 2.</b> <b>Depth reduction analysis.</b> 
-    We progressively prune layers across the unified multimodal model. 
-    The understanding component demonstrates higher compressibility overall, 
-    yet when evaluated under <i>generation tasks</i>, it tolerates a larger pruning ratio 
-    before noticeable degradation, suggesting <b>cross-task robustness</b> and <b>latent redundancy</b> 
-    in its feature hierarchy.
+    The understanding component shows higher compressibility overall, 
+    yet tolerates even larger pruning ratios when evaluated under <i>generation tasks</i>, 
+    indicating cross-task redundancy in the unified multimodal model.
   </p>
+</div>
 
     <!-- ---------------------- Neuron Overlap and Calibration ---------------------- -->
     <div class="content has-text-centered">
