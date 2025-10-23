@@ -1,128 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="">
-  <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Understanding Slimness and Sparsity in Unified Multimodal Models: An Empirical Study</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/954/954591.png">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      line-height: 1.7;
+    }
+    h1, h2, h3 {
+      font-family: 'Source Serif Pro', serif;
+      font-weight: 600;
+      color: #111;
+    }
+    h2.title.is-3, h3.title.is-3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    h2.title.is-3 img, h3.title.is-3 img {
+      width: 36px;
+      vertical-align: middle;
+    }
+    .content.has-text-justified p {
+      text-align: justify;
+      font-family: 'Source Serif Pro', serif;
+      font-size: 1.05rem;
+      color: #333;
+      line-height: 1.75;
+    }
+    figure {
+      text-align: center;
+    }
+    figcaption {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    section.section {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    .navbar {
+      border-bottom: 1px solid #e6e6e6;
+    }
+  </style>
 </head>
-
-<style>
-  .expandable-card .card-text-container {
-    max-height: 200px;
-    overflow-y: hidden;
-    position: relative;
-  }
-
-  .expandable-card.expanded .card-text-container {
-    max-height: none;
-  }
-
-  .expand-btn {
-    position: relative;
-    display: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    /* margin-top: -20px; */
-    /* justify-content: center; */
-    color: #510c75;
-    border-color: transparent;
-  }
-
-  .expand-btn:hover {
-    background-color: rgba(200, 200, 200, 0.8);
-    text-decoration: none;
-    border-color: transparent;
-    color: #510c75;
-  }
-
-  .expand-btn:focus {
-    outline: none;
-    text-decoration: none;
-  }
-
-  .expandable-card:not(.expanded) .card-text-container:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
-  }
-
-  .expandable-card:not(.expanded) .expand-btn {
-    margin-top: -40px;
-  }
-
-  .card-body {
-    padding-bottom: 5px;
-  }
-
-  .vertical-flex-layout {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .figure-img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .adjustable-font-size {
-    font-size: calc(0.5rem + 2vw);
-  }
-
-  .chat-history {
-    flex-grow: 1;
-    overflow-y: auto;
-    /* overflow-x: hidden; */
-    padding: 5px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-
-  #gradio pre {
-    background-color: transparent;
-  }
-</style>
 
 <body>
 
@@ -144,7 +75,7 @@
   </div>
 </nav>
 
-<!-- ====================== Hero Title ====================== -->
+<!-- ====================== Hero ====================== -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop has-text-centered">
@@ -152,7 +83,7 @@
         Understanding Slimness and Sparsity in Unified Multimodal Models: An Empirical Study
       </h1>
 
-      <div class="is-size-5 publication-authors mt-3">
+      <div class="is-size-5 publication-authors">
         <span class="author-block"><a href="https://shwai-he.github.io/">Shwai He</a><sup>1,2</sup>,</span>
         <span class="author-block"><a href="https://v3alab.github.io/author/chaorui-deng/">Chaorui Deng</a><sup>1</sup>,</span>
         <span class="author-block"><a href="https://www.ang-li.com/">Ang Li</a><sup>2</sup>,</span>
@@ -166,12 +97,10 @@
 
       <div class="publication-links mt-4">
         <a href="https://arxiv.org/pdf/2011.12948" class="button is-dark is-rounded">
-          <span class="icon"><i class="fas fa-file-pdf"></i></span>
-          <span>Paper</span>
+          <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
         </a>
         <a href="https://github.com/Shwai-He/SparseUnifiedModel" class="button is-dark is-rounded">
-          <span class="icon"><i class="fab fa-github"></i></span>
-          <span>Code</span>
+          <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
         </a>
       </div>
     </div>
@@ -181,28 +110,14 @@
 <!-- ====================== Abstract ====================== -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered mb-4">
-      <div class="column is-narrow">
-        <h2 class="title is-3" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/1042/1042339.png" width="38">
-          <span>Abstract</span>
-        </h2>
-      </div>
-    </div>
+    <h2 class="title is-3">
+      <img src="https://cdn-icons-png.flaticon.com/512/1042/1042339.png">
+      <span>Abstract</span>
+    </h2>
 
-    <div class="content has-text-justified" style="font-family:'Source Serif Pro',serif;line-height:1.75;font-size:1.05rem;color:#333;">
+    <div class="content has-text-justified">
       <p>
-        Large-scale multimodal models have achieved remarkable progress in both understanding and generation. Traditionally, these tasks were studied in isolation, resulting in distinct architectures. 
-        Recent efforts instead pursue unified multimodal models that integrate heterogeneous components to support both capabilities within a single framework. 
-        However, such unification introduces inference inefficiencies arising from <i>task-specific activation</i>, <i>compute imbalance</i>, and <i>input variability</i>. 
-        Yet, a systematic understanding of how these inefficiencies manifest across different components remains limited. 
-        In this work, we conduct a systematic analysis of unified multimodal model components using training-free pruning as a probing methodology, considering both depth pruning and width reduction. 
-        Our study reveals that the understanding component, while essential for multimodal reasoning, exhibits notable compressibility in generation tasks. 
-        In contrast, the generation components are highly sensitive to compression, with performance deteriorating sharply even under moderate pruning ratios. 
-        To address this limitation, we propose a <b>Mixture-of-Experts (MoE) Adaptation</b>, inspired by dynamic activation patterns observed across different samples. 
-        This approach partitions the generation module into multiple experts and enables sparse activation to restore generation quality. 
-        We validate the effectiveness of sparse activation through expert-frozen tuning and further show that a fully trainable adaptation delivers additional gains. 
-        As a result, the adapted <b>BAGEL</b> model achieves performance comparable to the full model while activating only about half of its parameters.
+        Large-scale multimodal models have achieved remarkable progress in both understanding and generation. Traditionally, these tasks were studied in isolation, resulting in distinct architectures. Recent efforts instead pursue unified multimodal models that integrate heterogeneous components to support both capabilities within a single framework. However, such unification introduces inference inefficiencies arising from <i>task-specific activation</i>, <i>compute imbalance</i>, and <i>input variability</i>. Yet, a systematic understanding of how these inefficiencies manifest across different components remains limited. In this work, we conduct a systematic analysis of unified multimodal model components using training-free pruning as a probing methodology, considering both depth pruning and width reduction. Our study reveals that the understanding component, while essential for multimodal reasoning, exhibits notable compressibility in generation tasks. In contrast, the generation components are highly sensitive to compression, with performance deteriorating sharply even under moderate pruning ratios. To address this limitation, we propose a Mixture-of-Experts (MoE) Adaptation, inspired by dynamic activation patterns observed across different samples. This approach partitions the generation module into multiple experts and enables sparse activation to restore generation quality. We validate the effectiveness of sparse activation through expert-frozen tuning and further show that a fully trainable adaptation delivers additional gains. As a result, the adapted BAGEL model achieves performance comparable to the full model while activating only about half of its parameters.
       </p>
     </div>
   </div>
@@ -211,33 +126,23 @@
 <!-- ====================== Overview ====================== -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered mb-4">
-      <div class="column is-narrow">
-        <h2 class="title is-3" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png" width="40">
-          <span>SparseUnifiedModel: Toward Efficient Unified Multimodal Architectures</span>
-        </h2>
-      </div>
-    </div>
+    <h2 class="title is-3">
+      <img src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png">
+      <span>SparseUnifiedModel: Toward Efficient Unified Multimodal Architectures</span>
+    </h2>
 
-    <div class="content has-text-justified" style="font-family:'Source Serif Pro',serif;line-height:1.75;color:#333;">
+    <div class="content has-text-justified">
       <p>
-        <b>SparseUnifiedModel</b> integrates pre-trained multimodal backbones 
-        (<a href="https://github.com/ByteDance-Seed/Bagel">BAGEL</a>, 
-        <a href="https://github.com/inclusionAI/Ming/tree/main">Ming-Omni</a>, 
-        <a href="https://github.com/QwenLM/Qwen-Image">Qwen-Image</a>)
-        into a unified framework for both <i>understanding</i> and <i>generation</i>. 
-        It leverages sparse activation, modular adaptation, and component-level analysis 
-        to uncover redundancy and improve computational efficiency across heterogeneous modalities.
+        <b>SparseUnifiedModel</b> integrates pre-trained multimodal backbones (<a href="https://github.com/ByteDance-Seed/Bagel">BAGEL</a>, <a href="https://github.com/inclusionAI/Ming/tree/main">Ming-Omni</a>, <a href="https://github.com/QwenLM/Qwen-Image">Qwen-Image</a>) into a unified framework for both <i>understanding</i> and <i>generation</i>. It leverages sparse activation, modular adaptation, and component-level analysis to uncover redundancy and improve computational efficiency across heterogeneous modalities. We consider a two-stage efficiency optimization procedure:
       </p>
       <ul>
-        <li><b>Stage 1:</b> Training-Free Component Analysis — using depth and width pruning to identify compressible submodules, revealing distinct sensitivities across components.</li>
-        <li><b>Stage 2:</b> Sparse Adaptation via MoE Integration — introducing <b>Mixture-of-Experts</b> routing for selective activation and improved generation efficiency.</li>
+        <li><b>Stage 1: Training-Free Component Analysis.</b> Using depth and width pruning as probing tools, we systematically identify compressible submodules, revealing distinct sensitivities across understanding and generation components.</li>
+        <li><b>Stage 2: Sparse Adaptation via MoE Integration.</b> Inspired by dynamic activation patterns across tasks, we introduce a <b>Mixture-of-Experts (MoE)</b> adaptation that enables selective activation in generation modules, achieving high-quality generation with reduced computational cost.</li>
       </ul>
     </div>
 
     <div class="has-text-centered">
-      <img id="teaser" width="80%" src="static/images/efficient_ug.svg">
+      <img src="static/images/efficient_ug.svg" width="80%">
     </div>
   </div>
 </section>
@@ -245,105 +150,55 @@
 <!-- ====================== Key Results ====================== -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered mb-4">
-      <div class="column is-narrow">
-        <h2 class="title is-3" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828673.png" width="40">
-          <span>Key Results and Insights</span>
-        </h2>
-      </div>
-    </div>
-    <hr>
+    <h2 class="title is-3">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828673.png">
+      <span>Key Results and Insights</span>
+    </h2>
 
-    <!-- Depth Reduction -->
     <div class="columns is-centered is-vcentered">
-      <div class="column is-one-third">
-        <figure>
-          <img src="static/images/depth_reduction.svg" style="width:95%">
-          <figcaption class="is-size-7 mt-2"><b>(a)</b> Overall pruning trend across model depth.</figcaption>
-        </figure>
-      </div>
-      <div class="column is-one-third">
-        <figure>
-          <img src="static/images/compress_und_und_task.png" style="width:95%">
-          <figcaption class="is-size-7 mt-2"><b>(b)</b> Understanding component under <i>understanding tasks</i>.</figcaption>
-        </figure>
-      </div>
-      <div class="column is-one-third">
-        <figure>
-          <img src="static/images/compress_und_gen_task.png" style="width:95%">
-          <figcaption class="is-size-7 mt-2"><b>(c)</b> Understanding component under <i>generation tasks</i>.</figcaption>
-        </figure>
-      </div>
+      <div class="column is-one-third"><figure><img src="static/images/depth_reduction.svg" width="95%"><figcaption><b>(a)</b> Overall pruning trend across model depth.</figcaption></figure></div>
+      <div class="column is-one-third"><figure><img src="static/images/compress_und_und_task.png" width="95%"><figcaption><b>(b)</b> Understanding component under <i>understanding tasks</i>.</figcaption></figure></div>
+      <div class="column is-one-third"><figure><img src="static/images/compress_und_gen_task.png" width="95%"><figcaption><b>(c)</b> Understanding component under <i>generation tasks</i>.</figcaption></figure></div>
     </div>
-    <p class="is-size-6 mt-3">
-      <b>Figure 2.</b> <b>Depth reduction analysis.</b> Understanding components are highly compressible overall, 
-      and tolerate even larger pruning ratios under generation tasks, revealing cross-task redundancy.
-    </p>
+
+    <p class="is-size-6 mt-3"><b>Figure 2.</b> <b>Depth reduction analysis.</b> The understanding component shows higher compressibility overall, yet tolerates even larger pruning ratios under <i>generation tasks</i>, suggesting cross-task redundancy in unified multimodal representations.</p>
   </div>
 </section>
 
-<!-- ====================== Dilemma Section ====================== -->
+<!-- ====================== Dilemma ====================== -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered mb-4">
-      <div class="column is-narrow">
-        <h2 class="title is-3" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/991/991952.png" width="40">
-          <span>Dilemma of Compressing Generation Component</span>
-        </h2>
-      </div>
-    </div>
+    <h3 class="title is-3">
+      <img src="https://cdn-icons-png.flaticon.com/512/991/991952.png">
+      <span>Dilemma of Compressing Generation Component</span>
+    </h3>
 
-    <div class="has-text-centered mb-4">
+    <div class="has-text-centered">
       <img src="static/images/dilemma_compress_gen.png" width="70%">
-      <p class="is-size-7 mt-2"><b>Figure 3.</b> The compression dilemma in generation modules.</p>
+      <figcaption><b>Figure 3.</b> The compression dilemma in generation modules.</figcaption>
     </div>
 
-    <div class="content has-text-justified" style="font-family:'Source Serif Pro',serif;max-width:85%;margin:0 auto;line-height:1.8;color:#333;font-size:1.05rem;">
+    <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
       <p>
-        While <b>understanding components</b> exhibit high structural redundancy and can be pruned with minor impact,
-        <b>generation modules</b> present a fundamental <b>compression dilemma</b>. Their parameters are tightly coupled with output fidelity,
-        where even moderate pruning ratios lead to severe degradation in text or image quality. 
-        This imbalance highlights a key challenge in unified multimodal efficiency —
-        <b>how to compress aggressively without harming generative capability</b>.
-        Our study shows that sparse adaptation via <b>MoE routing</b> provides a feasible solution by enabling selective activation rather than uniform compression across the generation stack.
+        While <b>understanding components</b> exhibit high structural redundancy and can be pruned with minor impact, <b>generation modules</b> present a fundamental <b>compression dilemma</b>. Their parameters are tightly coupled with output fidelity, where even moderate pruning ratios lead to severe degradation in text or image quality. This imbalance highlights a key challenge in unified multimodal efficiency — <b>how to compress aggressively without harming generative capability</b>. Our study finds that sparse adaptation via <b>MoE routing</b> provides a viable path forward, allowing selective activation instead of uniform compression across the entire generation stack.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ====================== Sparsity / MoE ====================== -->
+<!-- ====================== MoE Adaptation ====================== -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered mb-4">
-      <div class="column is-narrow">
-        <h2 class="title is-3" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png" width="40">
-          <span>Dynamic Activation–Inspired MoE Adaptation</span>
-        </h2>
-      </div>
-    </div>
+    <h3 class="title is-3">
+      <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png">
+      <span>Dynamic Activation Inspired MoE Adaptation</span>
+    </h3>
 
-    <div class="content has-text-centered">
-      <figure>
-        <img src="static/images/zeros_ones_ratio_hatch.svg" width="70%">
-        <figcaption class="is-size-7 mt-2"><b>(a)</b> Activation sparsity patterns across layers.</figcaption>
-      </figure>
-
-      <p class="is-size-6 mt-3">
-        <b>Figure 4.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers,
-        indicating emergent structured sparsity that can be exploited for efficient routing and inference.
-      </p>
-
-      <figure class="mt-5">
-        <img src="static/images/comprison_gen.png" width="70%">
-        <figcaption class="is-size-7 mt-2"><b>(b)</b> Comparison between training-free slimness and training-aware sparsity.</figcaption>
-      </figure>
-
-      <p class="is-size-6 mt-3">
-        Training-free analysis identifies compressible regions, while MoE-based sparse adaptation further refines activation patterns to restore generation quality with minimal computation.
-      </p>
+    <div class="has-text-centered">
+      <figure><img src="static/images/zeros_ones_ratio_hatch.svg" width="70%"><figcaption><b>(a)</b> Activation sparsity patterns across layers.</figcaption></figure>
+      <p class="is-size-6 mt-3"><b>Figure 4.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers, indicating emergent structured sparsity that can be exploited for efficient routing and inference.</p>
+      <figure class="mt-5"><img src="static/images/comprison_gen.png" width="70%"><figcaption><b>(b)</b> Overall comparison between training-free slimness and training-aware sparsity.</figcaption></figure>
+      <p class="is-size-6 mt-3">Training-free analysis identifies naturally compressible regions, while MoE-based sparse adaptation further refines activation patterns to restore generation quality with minimal computation.</p>
     </div>
   </div>
 </section>
@@ -351,11 +206,13 @@
 <!-- ====================== BibTeX ====================== -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title is-3"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png" width="36" style="margin-right:10px;">BibTeX</h2>
+    <h2 class="title is-3">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png">
+      <span>BibTeX</span>
+    </h2>
     <pre><code></code></pre>
   </div>
 </section>
 
 </body>
-
 </html>
