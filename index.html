@@ -248,11 +248,20 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
           <p>
+            Large-scale multimodal models have achieved remarkable progress in both understanding and generation. Traditionally, these tasks were studied in isolation, resulting in distinct architectures. 
+            Recent efforts instead pursue unified multimodal models that integrate heterogeneous components to support both capabilities within a single framework. 
+            However, such unification introduces inference inefficiencies arising from \textit{task-specific activation}, \textit{compute imbalance}, and \textit{input variability}.
+            Yet, a systematic understanding of how these inefficiencies manifest across different components remains limited.
+            In this work, we conduct a systematic analysis of unified multimodal model components using training-free pruning as a probing methodology, considering both depth pruning and width reduction. 
+            Our study reveals that the understanding component, while essential for multimodal reasoning, exhibits notable compressibility in generation tasks. 
+            In contrast, the generation components are highly sensitive to compression, with performance deteriorating sharply even under moderate pruning ratios. 
+            To address this limitation, we propose a Mixture-of-Experts (MoE) Adaptation, inspired by the dynamic activation patterns observed across different samples. 
+            This approach partitions the generation module into multiple experts and enables sparse activation to restore generation quality. 
+            We first validate the effectiveness of sparse activation through expert-frozen tuning and further demonstrate that a fully trainable adaptation delivers additional gains. 
+            As a result, the adapted BAGEL model achieves performance comparable to the full model while activating only about half of its parameters.
+          </p>
+          <!-- <p>
             Our approach augments neural radiance fields
             (NeRF) by optimizing an
             additional continuous volumetric deformation field that warps each observed point into a
@@ -263,8 +272,8 @@
             By adapting principles from geometry processing and physical simulation to NeRF-like
             models, we propose an elastic regularization of the deformation field that further
             improves robustness.
-          </p>
-          <p>
+          </p> -->
+          <!-- <p>
             We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
             photos/videos into deformable NeRF
             models that allow for photorealistic renderings of the subject from arbitrary
