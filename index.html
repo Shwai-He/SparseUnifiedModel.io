@@ -176,48 +176,45 @@
       <img src="static/images/light.png">
       <span>Understanding Component Demonstrate Compressibility </span>
     </h2>
+    
+    
+    <!-- ========== Single Full-Width Figure (Top Row) ========== -->
+    <div class="content has-text-centered">
+      <figure>
+        <img src="static/images/depth_reduction.svg" style="width:75%; height:auto;">
+        <figcaption class="is-size-7 mt-2">
+          Depth Pruning on Generation Tasks.
+        </figcaption>
+      </figure>
+    </div>
 
-    <div class="columns is-centered is-vcentered">
-  
-      <!-- (a) 独立 Caption -->
-      <div class="column is-one-third">
-        <figure>
-          <img src="static/images/depth_reduction.svg" width="95%">
-          <figcaption class="is-size-7 mt-2">
-            <b>(a)</b> Depth pruning trend across model layers.
-          </figcaption>
-        </figure>
-      </div>
-    
-      <!-- (b) 和 (c) 合并为单一 Caption -->
-      <div class="column is-two-thirds">
-        <div class="columns is-vcentered">
-          <div class="column is-half">
-            <figure>
-              <img src="static/images/compress_und_und_task.png" width="95%">
-              <figcaption class="is-size-7 mt-2">
-                <b>(b)</b> Width reduction on <i>understanding tasks</i>.
-              </figcaption>
-            </figure>
-          </div>
-          <div class="column is-half">
-            <figure>
-              <img src="static/images/compress_und_gen_task.png" width="95%">
-              <figcaption class="is-size-7 mt-2">
-                <b>(c)</b> Width reduction on <i>generation tasks</i>.
-              </figcaption>
-            </figure>
-          </div>
+    <!-- ========== Two Tables Side-by-Side ========== -->
+    <div class="content has-text-centered">
+
+      <div class="columns is-centered is-vcentered">
+
+        <!-- Left Table -->
+        <div class="column is-half">
+          <figure>
+            <img src="static/images/compress_und_und_task.png" style="width:95%; height:auto;">
+          </figure>
         </div>
-    
-        <!-- Shared Caption for (b) and (c) -->
-        <p class="is-size-7 mt-1" style="text-align:center;">
-          <b>Shared Caption for (b)–(c):</b>  
-          Width pruning shows distinct sensitivity across tasks—understanding tasks tolerate higher compression than generation tasks.
-        </p>
+
+        <!-- Right Table -->
+        <div class="column is-half">
+          <figure>
+            <img src="static/images/compress_und_gen_task.png" style="width:95%; height:auto;">
+          </figure>
+        </div>
+
       </div>
-    
-    </div>  
+
+      <!-- Combined Caption -->
+      <p class="is-size-7 mt-2">
+        <b>(b)</b> Width reduction on <i>understanding</i> and <i>generation</i> tasks.
+      </p>
+
+    </div>
 
     
 
