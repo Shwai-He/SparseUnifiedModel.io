@@ -203,7 +203,7 @@
 
     <div class="has-text-centered">
       <img src="static/images/dilemma_compress_gen.png" width="70%">
-      <figcaption><b>Figure 3.</b> The compression dilemma in generation modules.</figcaption>
+      <figcaption> The compression dilemma in generation components.</figcaption>
     </div>
 
     <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
@@ -226,17 +226,16 @@
       <figure><img src="static/images/zeros_ones_ratio_hatch.svg" width="70%"><figcaption> Activation sparsity patterns across layers.</figcaption></figure>
       <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
       <p>
-        <b>Figure 4.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers, indicating emergent structured sparsity that can be exploited for efficient routing and inference.
+        Visualization of activation distributions shows an increasing ratio of saturated and inactive neurons (<i>zeros</i>) in higher layers. The activation ratio further reveals that persistently active and inactive neurons together account for far less than the 50% compression ratio, highlighting strong sample-dependent dynamics in activation patterns.      
       </p>
       </div>
     </div>
 
-      <!-- <p class="is-size-6 mt-3"><b>Figure 4.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers, indicating emergent structured sparsity that can be exploited for efficient routing and inference.</p> -->
     <div class="has-text-centered">
       <figure class="mt-5"><img src="static/images/comprison_gen.png" width="70%"><figcaption> Overall comparison between training-free slimness and training-aware sparsity.</figcaption></figure>
       <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
       <p>
-        Training-free analysis identifies naturally compressible regions, while MoE-based sparse adaptation further refines activation patterns to restore generation quality with minimal computation.
+        Training-free analysis identifies naturally compressible regions within the model, providing insights into static redundancy patterns. In contrast, MoE-based sparse adaptation further refines these activation patterns through dynamic, sample-dependent routing, effectively restoring generation quality while minimizing computation cost.
       </p>
       </div>    
       <!-- <p class="is-size-6 mt-3">Training-free analysis identifies naturally compressible regions, while MoE-based sparse adaptation further refines activation patterns to restore generation quality with minimal computation.</p> -->
