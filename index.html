@@ -178,11 +178,46 @@
     </h2>
 
     <div class="columns is-centered is-vcentered">
-      <div class="column is-one-third"><figure><img src="static/images/depth_reduction.svg" width="95%"><figcaption><b>(a)</b> Overall pruning trend across model depth.</figcaption></figure></div>
-      <div class="column is-one-third"><figure><img src="static/images/compress_und_und_task.png" width="95%"><figcaption><b>(b)</b> Understanding component under <i>understanding tasks</i>.</figcaption></figure></div>
-      <div class="column is-one-third"><figure><img src="static/images/compress_und_gen_task.png" width="95%"><figcaption><b>(c)</b> Understanding component under <i>generation tasks</i>.</figcaption></figure></div>
+  
+      <!-- (a) 独立 Caption -->
+      <div class="column is-one-third">
+        <figure>
+          <img src="static/images/depth_reduction.svg" width="95%">
+          <figcaption class="is-size-7 mt-2">
+            <b>(a)</b> Depth pruning.
+          </figcaption>
+        </figure>
+      </div>
+    
+      <!-- (b) 和 (c) 合并为单一 Caption -->
+      <div class="column is-two-thirds">
+        <div class="columns is-vcentered">
+          <div class="column is-half">
+            <figure>
+              <img src="static/images/compress_und_und_task.png" width="95%">
+              <figcaption class="is-size-7 mt-2">
+                <!-- <b>(b)</b> Width reduction on <i>understanding tasks</i>. -->
+              </figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <img src="static/images/compress_und_gen_task.png" width="95%">
+              <figcaption class="is-size-7 mt-2">
+                <!-- <b>(c)</b> Width reduction on <i>generation tasks</i>. -->
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+    
+        <!-- Shared Caption for (b) and (c) -->
+        <p class="is-size-7 mt-1" style="text-align:center;">
+          Width pruning
+        </p>
+      </div>
+    
     </div>
-
+    
 
     <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
       <p>
