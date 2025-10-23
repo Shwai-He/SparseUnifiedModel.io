@@ -209,29 +209,44 @@
     <div class="column is-full-width">
       <div class="content has-text-justified"> 
         <p>
-          LLaVa connects pre-trained <a href="https://openai.com/research/clip">CLIP ViT-L/14</a> visual encoder and large language model <a href="https://github.com/lm-sys/FastChat">Vicuna</a>, using a simple projection matrix.   We consider a two-stage instruction-tuning procedure:
+          <b>SparseUnifiedModel</b> integrates pre-trained multimodal backbones 
+          (<a href="#">BAGEL</a>, <a href="#">Ming-Omni</a>, <a href="#">Qwen-Image</a>)
+          into a unified framework for both <i>understanding</i> and <i>generation</i>. 
+          It leverages sparse activation, modular adaptation, and component-level analysis 
+          to uncover redundancy and improve computational efficiency across heterogeneous modalities.
+          We consider a two-stage efficiency optimization procedure:
           <ul type="1">
-            <li><b>Stage 1: Pre-training for Feature Alignment</b>. <span style="font-size: 95%;">Only the projection matrix is updated, based on a subset of CC3M.</span></li>
-            <li><b>Stage 2: Fine-tuning End-to-End</b>. <span style="font-size: 95%;">Both the projection matrix and LLM are updated for two different use senarios: 
+            <li><b>Stage 1: Training-Free Component Analysis</b>. 
+              <span style="font-size: 95%;">
+                Using depth and width pruning as probing tools, we systematically identify compressible submodules within unified multimodal models, 
+                revealing the sensitivity difference between understanding and generation components.
+              </span>
+            </li>
+            <li><b>Stage 2: Sparse Adaptation via MoE Integration</b>. 
+              <span style="font-size: 95%;">
+                Inspired by dynamic activation patterns across tasks, we introduce a 
+                <b>Mixture-of-Experts (MoE)</b> adaptation to enable selective activation in generation modules, 
+                achieving high-quality generation with reduced computational cost.
+              </span>
               <ul type="1">
-                <li> <b>Visual Chat</b>: LLaVA is fine-tuned on our generated multimodal instruction-following data for daily user-oriented applications. 
-                <li> <b>Science QA</b>: LLaVA is fine-tuned on this multimodal reasonsing dataset for the science domain.</span></li>
-              </ul>  
-          </ul>  
+                <li><b>Unified Understanding</b>: Efficient multimodal reasoning and analysis using compressed understanding components.</li>
+                <li><b>Unified Generation</b>: Sparse activation restores generation quality under dynamic task conditions.</li>
+              </ul>
+            </li>
+          </ul>
           Please check out our 
-          <a href="">[Model Zoo]</a>.
+          <a href="#">[Model Zoo]</a>.
         </p>
       </div>
       <centering>
         <div style="text-align: center;">
           <img id="teaser" width="70%" src="static/images/efficient_ug.svg">     
         </div>
-
-      
       </centering>           
     </div>
   </div>
 
+</div>
 
 </section>
 
