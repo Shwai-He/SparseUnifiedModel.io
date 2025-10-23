@@ -252,26 +252,72 @@
     <hr>
 
 
-    <!-- ---------------------- Depth Reduction ---------------------- -->
-    <div class="content has-text-centered">
-      <img src="static/images/depth_reduction.svg" width="65%">
-      <p class="is-size-6 mt-3">
-        <b>Figure 2.</b> <b>Depth reduction analysis.</b> 
-        We progressively prune layers across understanding and generation components. 
-        The results show that understanding layers are more compressible, while generation layers 
-        exhibit sharp performance degradation under the same pruning ratio, 
-        reflecting distinct depth sensitivities across modalities.
-      </p>
+    <!-- ---------------------- Compress Und. ---------------------- -->
+
+    <!-- Left Figure -->
+    <div class="column is-one-third">
+      <figure>
+        <img src="static/images/depth_reduction.svg" width="95%">
+        <figcaption class="is-size-7 mt-2"><b>(a)</b> Overall pruning trend across model depth.</figcaption>
+      </figure>
     </div>
 
-    <!-- ---------------------- Neuron Overlap ---------------------- -->
+    <!-- Middle Figure -->
+    <div class="column is-one-third">
+      <figure>
+        <img src="static/images/compress_und_und_task.png" width="95%">
+        <figcaption class="is-size-7 mt-2"><b>(b)</b> Understanding component under <i>understanding tasks</i>.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Right Figure -->
+    <div class="column is-one-third">
+      <figure>
+        <img src="static/images/compress_und_gen_task.png" width="95%">
+        <figcaption class="is-size-7 mt-2"><b>(c)</b> Understanding component under <i>generation tasks</i>.</figcaption>
+      </figure>
+    </div>
+
+
+  <p class="is-size-6 mt-3">
+    <b>Figure 2.</b> <b>Depth reduction analysis.</b> 
+    We progressively prune layers across the unified multimodal model. 
+    The understanding component demonstrates higher compressibility overall, 
+    yet when evaluated under <i>generation tasks</i>, it tolerates a larger pruning ratio 
+    before noticeable degradation, suggesting <b>cross-task robustness</b> and <b>latent redundancy</b> 
+    in its feature hierarchy.
+  </p>
+
+    <!-- ---------------------- Neuron Overlap and Calibration ---------------------- -->
     <div class="content has-text-centered">
-      <img src="static/images/overlap.svg" width="65%">
+      <h3 class="title is-4">Neuron Overlap and Calibration</h3>
+
+      <div class="columns is-centered is-vcentered">
+
+        <!-- Left: Neuron Overlap -->
+        <div class="column is-half">
+          <figure>
+            <img src="static/images/overlap.svg" width="95%">
+            <figcaption class="is-size-7 mt-2"><b>(a)</b> Neuron activation overlap between understanding and generation tasks.</figcaption>
+          </figure>
+        </div>
+
+        <!-- Right: Calibration Ablation -->
+        <div class="column is-half">
+          <figure>
+            <img src="static/images/ablate_data.png" width="95%">
+            <figcaption class="is-size-7 mt-2"><b>(b)</b> Effect of calibration data on neuron importance estimation and overlap ratio.</figcaption>
+          </figure>
+        </div>
+
+      </div>
+
       <p class="is-size-6 mt-3">
-        <b>Figure 3.</b> <b>Neuron activation overlap across tasks.</b> 
-        Each point represents the proportion of neurons activated by both understanding and generation inputs. 
-        The low overlap ratio reveals <b>task-specific specialization</b> and motivates 
-        component-wise partitioning strategies for efficient adaptation.
+        <b>Figure 3.</b> <b>Neuron activation overlap and calibration analysis.</b>
+        The overlap ratio quantifies shared neurons activated by both understanding and generation inputs,
+        revealing <b>task-specific specialization</b> within the unified multimodal model. 
+        Using task-aligned calibration data substantially improves neuron partitioning accuracy, 
+        confirming that <b>calibration data matters</b> for reliable training-free analysis.
       </p>
     </div>
 
@@ -297,8 +343,15 @@
       </p>
     </div>
 
+      <img src="static/images/comprison_gen.png" width="65%">
+    overall comprison between training-free slimness and training-aware sparsity 
+
+
   </div>
+
+
 </section>
+
 
 
 </section>
