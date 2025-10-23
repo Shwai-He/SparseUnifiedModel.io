@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/954/954591.png">
+
+
 <style>
   body {
     font-family: 'Inter', sans-serif;
@@ -184,7 +186,7 @@
 
     <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
       <p>
-        The understanding component shows higher compressibility overall, yet tolerates even larger pruning ratios under <i>generation tasks</i>, suggesting cross-task redundancy in unified multimodal representations. 
+        The understanding component exhibits higher overall compressibility and can tolerate even larger pruning ratios under <i>generation tasks</i>, highlighting the disparity in redundancy across different task types.
       </p>
     </div>
 
@@ -221,7 +223,7 @@
     </h3>
 
     <div class="has-text-centered">
-      <figure><img src="static/images/zeros_ones_ratio_hatch.svg" width="70%"><figcaption><b>(a)</b> Activation sparsity patterns across layers.</figcaption></figure>
+      <figure><img src="static/images/zeros_ones_ratio_hatch.svg" width="70%"><figcaption> Activation sparsity patterns across layers.</figcaption></figure>
       <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
       <p>
         <b>Figure 4.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers, indicating emergent structured sparsity that can be exploited for efficient routing and inference.
@@ -230,10 +232,8 @@
     </div>
 
       <!-- <p class="is-size-6 mt-3"><b>Figure 4.</b> Visualization of activation distributions shows an increasing ratio of inactive neurons (<i>zeros</i>) in higher layers, indicating emergent structured sparsity that can be exploited for efficient routing and inference.</p> -->
-      <figure class="mt-5"><img src="static/images/comprison_gen.png" width="70%"><figcaption><b>(b)</b> Overall comparison between training-free slimness and training-aware sparsity.</figcaption></figure>
-      
     <div class="has-text-centered">
-      <figure><img src="static/images/zeros_ones_ratio_hatch.svg" width="70%"><figcaption><b>(a)</b> Activation sparsity patterns across layers.</figcaption></figure>
+      <figure class="mt-5"><img src="static/images/comprison_gen.png" width="70%"><figcaption> Overall comparison between training-free slimness and training-aware sparsity.</figcaption></figure>
       <div class="content has-text-justified" style="max-width:85%;margin:0 auto;">
       <p>
         Training-free analysis identifies naturally compressible regions, while MoE-based sparse adaptation further refines activation patterns to restore generation quality with minimal computation.
